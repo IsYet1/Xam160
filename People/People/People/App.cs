@@ -9,7 +9,7 @@ namespace People
 {
     public class App : Application
     {
-        public App()
+        public App(string displayText)
         {
             // The root page of your application
             MainPage = new ContentPage
@@ -20,7 +20,7 @@ namespace People
                     Children = {
                         new Label {
                             HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
+                            Text = displayText
                         }
                     }
                 }

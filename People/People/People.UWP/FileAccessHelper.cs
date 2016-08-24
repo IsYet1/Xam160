@@ -10,7 +10,7 @@ namespace People.UWP
     {
         public static string GetLocalFilePath(string filename)
         {
-            string path = Windows.Storage.ApplicationData.Current.LocalFolder.Path;
+            string path = global::Windows.Storage.ApplicationData.Current.LocalFolder.Path;
             return System.IO.Path.Combine(path, filename);
         }
     }

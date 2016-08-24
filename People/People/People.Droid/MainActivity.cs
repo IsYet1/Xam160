@@ -15,9 +15,11 @@ namespace People.Droid
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+
+            string dbPath = FileAccessHelper.GetLocalFilePath("people.db3");
+
+            LoadApplication(new App(dbPath));
         }
     }
 }
