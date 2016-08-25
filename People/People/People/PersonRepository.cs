@@ -8,14 +8,14 @@ namespace People
 {
     public class PersonRepository
     {
-        private readonly SQLiteConnection _conn;
+        private readonly SQLiteConnection conn;
 
         public string StatusMessage { get; set; }
 
         public PersonRepository(string dbPath)
         {
-            _conn = new SQLiteConnection(dbPath);
-            _conn.CreateTable<Person>();
+            conn = new SQLiteConnection(dbPath);
+            conn.CreateTable<Person>();
         }
 
         public void AddNewPerson(string name)
@@ -27,7 +27,7 @@ namespace People
                     throw new Exception("Valid name required");
 
                 //insert a new person into the Person table
-                var result = _conn.Insert(new Person { Name = name });
+                var result = conn.Insert(new Person { Name = name });
                 StatusMessage = string.Format("{0} record(s) added [Name: {1})", result, name);
             }
             catch (Exception ex)
@@ -40,7 +40,7 @@ namespace People
         public List<Person> GetAllPeople()
         {
             //return a list of people saved to the Person table in the database
-            return _conn.Table<Person>().ToList();
+            return conn.Table<Person>().ToList();
         }
     }
 }

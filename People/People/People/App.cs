@@ -9,22 +9,13 @@ namespace People
 {
     public class App : Application
     {
-        public App(string displayText)
+        public static PersonRepository PersonRepo { get; private set; }
+
+        public App(string dbPath)
         {
-            // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = displayText
-                        }
-                    }
-                }
-            };
+            PersonRepo = new PersonRepository(dbPath);
+
+            this.MainPage = new MainPage();
         }
 
         protected override void OnStart()
