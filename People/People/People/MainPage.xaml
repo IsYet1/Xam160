@@ -4,7 +4,7 @@
              x:Class="People.MainPage"
              Padding="0,20">
 
-  <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="Default">
+  <Grid Padding="5" RowSpacing="1" ColumnSpacing="1" BackgroundColor="Gray">
     <Grid.RowDefinitions>
       <RowDefinition Height="Auto" />
       <RowDefinition Height="Auto" />
@@ -27,7 +27,7 @@
 
     <Button Text="Get All People"
             Grid.Row="3"
-            ClassId="OnGetButtonClicked" />
+            Clicked="OnGetButtonClicked" />
 
     <ListView x:Name="peopleList"
               Grid.Row="4" >
@@ -43,8 +43,5 @@
       
     </ListView>
     
-    
   </Grid>
-  
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 </ContentPage>
