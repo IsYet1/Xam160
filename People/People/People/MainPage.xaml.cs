@@ -1,6 +1,7 @@
 ﻿using People.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 
 namespace People
 {
@@ -11,19 +12,19 @@ namespace People
             InitializeComponent();
         }
 
-        public void OnNewButtonClicked(object sender, EventArgs args)
+        public async void OnNewButtonClicked(object sender, EventArgs args)
         {
             statusMessage.Text = "";
 
-            App.PersonRepo.AddNewPerson(newPerson.Text);
+            await App.PersonRepo.AddNewPerson(newPerson.Text);
             statusMessage.Text = App.PersonRepo.StatusMessage;
         }
 
-        public void OnGetButtonClicked(object sender, EventArgs args)
+        public async void OnGetButtonClicked(object sender, EventArgs args)
         {
             statusMessage.Text = "";
 
-            var allPeople = App.PersonRepo.GetAllPeople();
+            var allPeople = await App.PersonRepo.GetAllPeople();
 
             ObservableCollection<Person> people = new ObservableCollection<Person>(allPeople);
             peopleList.ItemsSource = people;
