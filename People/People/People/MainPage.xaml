@@ -25,7 +25,7 @@
     <Label x:Name="statusMessage"
            Grid.Row="2" />
 
-    <Button Text="Get All People"
+    <Button Text="Get All People 1544"
             Grid.Row="3"
             Clicked="OnGetButtonClicked" />
 
